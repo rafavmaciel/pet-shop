@@ -1,0 +1,19 @@
+{
+  "name": "proj_estudo",
+  "version": "1.0.0",
+  "description": "nada",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "consign": "^0.1.6",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "save": "^2.4.0"
+  }
+}
