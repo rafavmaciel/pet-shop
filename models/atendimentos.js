@@ -46,6 +46,20 @@ class Atendimento {
         }
 
     }
+    //callback que retornará para o controller a resposta  
+    listar(res){
+
+        const sql = 'SELECT * FROM atendimentos'
+
+        conexao.query(sql, (err,result)=>{
+            if(err){
+                res.status(400).json(err)
+            } else{
+                res.status(200).json(result)
+            }
+        })
+
+    }
 }
 
 module.exports = new Atendimento
