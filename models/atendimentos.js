@@ -72,6 +72,29 @@ class Atendimento {
             }
         })
     }
+    alterar(id, val, resp){
+        if (val.data) {
+            val.data = moment(val.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+        }
+        
+        if(val.cliente.length < 5){
+            resp.status(400).json({
+                cliente: 'Cliente deve ter pelo menos cinco caracteres'
+            })
+            return
+        }
+        const sql = `UPDATE atendimentos SET ? WHERE id=${id}`
+
+        conexao.query(sql, val, (err,result)=>{
+            if(err){
+                resp.status(400).json(err)
+            } else{
+                resp.status(200).json(result)
+            }
+        })
+
+
+    }
 }
 
 module.exports = new Atendimento
