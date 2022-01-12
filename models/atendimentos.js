@@ -95,6 +95,18 @@ class Atendimento {
 
 
     }
+    deletar(id, resp){
+        const sql = `DELETE FROM atendimentos WHERE id=${id}`
+
+        conexao.query(sql, (err,result)=>{
+            if(err){
+                resp.status(400).json(err)
+            } else{
+                resp.status(200).json(result)
+            }
+        })
+
+    }
 }
 
 module.exports = new Atendimento
